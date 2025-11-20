@@ -1,13 +1,100 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  /* Cores Base */
+  --black: #000000;
+  --prussian-blue: #14213d;
+  --orange: #fca311;
+  --alabaster-grey: #e5e5e5;
+  --white: #ffffff;
+
+  /* TEMA CLARO (Padrão) */
+  --bg-color: var(--alabaster-grey);
+  --text-color: var(--black);
+  --card-bg: var(--white);
+  --navbar-bg: var(--prussian-blue);
+  --navbar-text: var(--white);
+  --heading-color: var(--prussian-blue); /* Títulos em Azul no modo claro */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* TEMA ESCURO */
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: var(--alabaster-grey);
+  --card-bg: var(--prussian-blue);
+  --navbar-bg: #000000;
+  --navbar-text: var(--alabaster-grey);
+  --heading-color: var(--orange); /* Títulos em Laranja no modo escuro para destaque */
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  min-height: 80vh;
+}
+
+/* Títulos usam a variável dinâmica agora */
+h1, h2, h3 {
+  color: var(--heading-color); 
+  transition: color 0.3s ease;
+}
+
+/* --- LOGO --- */
+.brand-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--orange) !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- CARDS --- */
+.card-custom {
+  height: 100%;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* --- FOOTER --- */
+.footer-link {
+  color: var(--alabaster-grey);
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--orange);
+  padding-left: 5px;
 }
